@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЖК Nexus — Инвестиции в Москву</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>ЖК Nexus</h1>
+    <p>Инвестиции в современный бизнес-класс в Москве</p>
+    <a href="https://wa.me/79251966413" class="btn-whatsapp">Связаться в WhatsApp</a>
+  </div>
+</header>
+
+<section class="advantages">
+  <div class="container">
+    <h2>Преимущества ЖК Nexus</h2>
+    <ul>
+      <li>Удобное расположение</li>
+      <li>Высокий инвестиционный потенциал</li>
+      <li>Современная архитектура и инфраструктура</li>
+    </ul>
+  </div>
+</section>
+
+<section class="plans">
+  <div class="container">
+    <h2>Планировки и квартиры</h2>
+    <img src="img/apartment1.jpg" alt="Квартира 1">
+    <img src="img/apartment2.jpg" alt="Квартира 2">
+    <img src="img/apartment3.jpg" alt="Квартира 3">
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="container">
+    <h2>Оставить заявку</h2>
+    <form action="https://formspree.io/f/xjkpagwl" method="POST">
+      <input type="text" name="name" placeholder="Имя" required>
+      <input type="tel" name="phone" placeholder="Телефон" required>
+      <input type="email" name="_replyto" placeholder="Email">
+      <textarea name="message" placeholder="Сообщение"></textarea>
+      <button type="submit">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© ЖК Nexus, Москва</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
