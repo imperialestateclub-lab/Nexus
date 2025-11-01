@@ -1,59 +1,206 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ЖК Nexus — Инвестиции в Москву</title>
-<link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ЖК Nexus — инвестиции в бизнес-класс, Москва</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="ЖК Nexus — современный дом бизнес-класса в Москве. Оставьте заявку, чтобы получить подбор планировок и спецусловия.">
+<meta name="format-detection" content="telephone=no">
+<style>
+:root{
+  --bg:#0c0d10;--elev:#12141a;--muted:#9aa0aa;--text:#e9edf3;--brand:#2f7df4;--brand-2:#00c389;--stroke:#1e2230;
+  --radius:14px;--shadow:0 10px 30px rgba(0,0,0,.35)
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+.btn{display:inline-block;padding:14px 20px;border-radius:12px;background:var(--brand);color:#fff;font-weight:600;border:1px solid rgba(255,255,255,.06);transition:.2s}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn-outline{background:transparent;border:1px solid #2a2f3d}
+.btn-wa{background:var(--brand-2)}
+/* header */
+.topbar{position:sticky;top:0;z-index:30;background:rgba(12,13,16,.65);backdrop-filter:blur(10px);border-bottom:1px solid var(--stroke)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700}
+.logo-dot{width:10px;height:10px;border-radius:50%;background:var(--brand)}
+.nav-actions{display:flex;gap:10px}
+/* hero */
+.hero{position:relative;min-height:70vh;display:flex;align-items:center}
+.hero::before{
+  content:"";position:absolute;inset:0;background:url('img/zhk.jpg') center/cover no-repeat;filter:brightness(.45) saturate(1.1)
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(1200px 600px at 70% 20%,rgba(47,125,244,.35),transparent 60%),
+             linear-gradient(to top,rgba(12,13,16,.75),transparent 60%)
+}
+.hero-inner{position:relative;z-index:2;padding:80px 0}
+.kicker{display:inline-block;padding:6px 10px;border:1px solid #2a2f3d;border-radius:999px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.hero h1{margin:16px 0 12px;font-size:42px;line-height:1.12}
+.hero p{margin:0 0 28px;color:#c9cfd8;max-width:720px;font-size:18px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+/* sections */
+.section{padding:64px 0;border-top:1px solid var(--stroke)}
+.section h2{font-size:28px;margin:0 0 18px}
+.sub{color:var(--muted);margin:0 0 26px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--elev);border:1px solid #191c26;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:18px}
+.card p{margin:0;color:#c7ccd6}
+/* gallery */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.grid img{width:100%;height:280px;object-fit:cover;border-radius:12px;border:1px solid #1a1f2c}
+/* form */
+.form-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+.box{background:var(--elev);border:1px solid #191c26;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+label{display:block;margin:0 0 6px;color:#c7ccd6}
+input,textarea{width:100%;background:#0f1116;border:1px solid #1d2230;color:#e9edf3;border-radius:12px;padding:14px 14px;font:inherit;outline:none}
+input:focus,textarea:focus{border-color:#345ef5;box-shadow:0 0 0 4px rgba(52,94,245,.15)}
+.field{margin-bottom:14px}
+.help{color:#9aa0aa;font-size:13px}
+.divider{height:1px;background:var(--stroke);margin:18px 0}
+.footer{padding:26px 0;color:#a7adba;border-top:1px solid var(--stroke)}
+/* sticky cta */
+.sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(12,13,16,.8);backdrop-filter:blur(8px);border-top:1px solid var(--stroke);z-index:40}
+.sticky .in{display:flex;gap:12px;align-items:center;justify-content:center;padding:12px 10px}
+.float-wa{position:fixed;right:18px;bottom:84px;z-index:41;background:var(--brand-2);width:56px;height:56px;border-radius:50%;
+display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:var(--shadow)}
+/* responsive */
+@media (max-width: 992px){
+  .cards{grid-template-columns:1fr 1fr}
+  .form-wrap{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:36px}
+}
+@media (max-width: 640px){
+  .grid{grid-template-columns:1fr}
+  .hero{min-height:64vh}
+}
+</style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <h1>ЖК Nexus</h1>
-    <p>Инвестиции в современный бизнес-класс в Москве</p>
-    <a href="https://wa.me/79251966413" class="btn-whatsapp">Связаться в WhatsApp</a>
-  </div>
-</header>
 
-<section class="advantages">
-  <div class="container">
-    <h2>Преимущества ЖК Nexus</h2>
-    <ul>
-      <li>Удобное расположение</li>
-      <li>Высокий инвестиционный потенциал</li>
-      <li>Современная архитектура и инфраструктура</li>
-    </ul>
+<!-- top -->
+<div class="topbar">
+  <div class="container nav">
+    <div class="logo"><span class="logo-dot"></span> ЖК Nexus</div>
+    <div class="nav-actions">
+      <a class="btn btn-outline" href="#plans">Планировки</a>
+      <a class="btn" href="#form">Оставить заявку</a>
+    </div>
   </div>
-</section>
+</div>
 
-<section class="plans">
-  <div class="container">
-    <h2>Планировки и квартиры</h2>
-    <img src="img/apartment1.jpg" alt="Квартира 1">
-    <img src="img/apartment2.jpg" alt="Квартира 2">
-    <img src="img/apartment3.jpg" alt="Квартира 3">
+<!-- hero -->
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="kicker">Москва • бизнес-класс</span>
+    <h1>ЖК Nexus — инвестиции с потенциалом роста</h1>
+    <p>Современная архитектура, сильная локация и востребованный формат.
+       Оставьте заявку — пришлю подборку планировок и спецусловий для инвесторов.</p>
+    <div class="hero-cta">
+      <a href="#form" class="btn">Получить подборку</a>
+      <a href="https://wa.me/79251966413" class="btn btn-wa">Написать в WhatsApp</a>
+    </div>
   </div>
 </section>
 
-<section class="form-section">
+<!-- преимущества -->
+<section class="section" id="benefits">
   <div class="container">
-    <h2>Оставить заявку</h2>
-    <form action="https://formspree.io/f/xjkpagwl" method="POST">
-      <input type="text" name="name" placeholder="Имя" required>
-      <input type="tel" name="phone" placeholder="Телефон" required>
-      <input type="email" name="_replyto" placeholder="Email">
-      <textarea name="message" placeholder="Сообщение"></textarea>
-      <button type="submit">Отправить заявку</button>
-    </form>
+    <h2>Почему Nexus</h2>
+    <p class="sub">Аргументы для инвестиции и для жизни</p>
+    <div class="cards">
+      <div class="card"><h3>Локация</h3><p>Транспортная доступность и перспектива района поддерживают спрос и ликвидность.</p></div>
+      <div class="card"><h3>Формат</h3><p>Планировки и сервисный контур отвечают запросу аренды и комфорт-проживания.</p></div>
+      <div class="card"><h3>Экономика</h3><p>Сценарии роста стоимости и доходности — по запросу направлю расчёты.</p></div>
+    </div>
   </div>
 </section>
 
-<footer>
+<!-- галерея/планировки -->
+<section class="section" id="plans">
   <div class="container">
-    <p>© ЖК Nexus, Москва</p>
+    <h2>Планировки и визуализации</h2>
+    <p class="sub">Актуальные варианты пришлю после заявки: студии, 1-2-комнатные</p>
+    <div class="grid">
+      <img src="img/final.jpg" alt="Визуализация">
+      <img src="img/bc.jpg" alt="Интерьер">
+      <img src="img/zhk.jpg" alt="Фасад">
+    </div>
   </div>
-</footer>
+</section>
 
-<script src="js/script.js"></script>
+<!-- форма -->
+<section class="section" id="form">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="box">
+        <h2>Оставьте заявку</h2>
+        <p class="sub">Пришлю подборку планировок, цены, акции и условия. Ответ в тот же день.</p>
+        <form action="https://formspree.io/f/xjkpagwl" method="POST">
+          <div class="field">
+            <label>Имя</label>
+            <input type="text" name="name" placeholder="Ваше имя" required>
+          </div>
+          <div class="field">
+            <label>Телефон</label>
+            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="field">
+            <label>Email (необязательно)</label>
+            <input type="email" name="_replyto" placeholder="name@example.com">
+          </div>
+          <div class="field">
+            <label>Комментарий</label>
+            <textarea name="message" rows="3" placeholder="Интересует планировка / бюджет / ипотека?"></textarea>
+          </div>
+          <input type="hidden" name="source" value="Nexus GitHub Pages">
+          <button class="btn" type="submit">Отправить заявку</button>
+          <p class="help">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Заявки приходят на Garantstolitsarealty@gmail.com</p>
+        </form>
+        <div class="divider"></div>
+        <p class="help">Или напишите сразу: <a href="https://wa.me/79251966413">WhatsApp</a></p>
+      </div>
+      <div class="box">
+        <h3 style="margin-top:0">Локация</h3>
+        <p class="help">Точный адрес и инфраструктурная карточка — в презентации после заявки. Добавлю маршруты, школы/сады и ориентиры района.</p>
+        <div style="height:240px;border-radius:12px;background:#0f1116;border:1px solid #1d2230;display:grid;place-items:center;color:#606775">
+          Карта появится в презентации
+        </div>
+        <div class="divider"></div>
+        <h3>Инвест-пакет</h3>
+        <ul class="help" style="margin:0 0 6px 18px;line-height:1.6">
+          <li>Подбор ликвидных лотов</li>
+          <li>Сценарии выхода и аренды</li>
+          <li>Регистрация клиента у застройщика</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<div class="footer">
+  <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <div>© ЖК Nexus, Москва</div>
+    <div class="help">Контакты: <a href="mailto:Garantstolitsarealty@gmail.com">Garantstolitsarealty@gmail.com</a></div>
+  </div>
+</div>
+
+<!-- sticky bar + WA -->
+<a class="float-wa" href="https://wa.me/79251966413" aria-label="WhatsApp">WA</a>
+<div class="sticky">
+  <div class="container in">
+    <span class="help" style="display:none"></span>
+    <a href="#form" class="btn">Оставить заявку</a>
+    <a href="https://wa.me/79251966413" class="btn btn-wa">Написать в WhatsApp</a>
+  </div>
+</div>
+
 </body>
 </html>
